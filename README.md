@@ -5,6 +5,7 @@
 The data we picked to do  for our final project is a data set of crime in seattle.This data represents crime reported to the Seattle Police Department (SPD). Each row contains the record of a unique event where at least one criminal offense was reported by a member of the community or detected by an officer in the field. 
 These data contain offenses and offense categorization coded to simulate the standard reported to the FBI under the National Incident Based Reporting System (NIBRS) and used to generate Uniform Crime Report (UCR) summary statistics. 
 
+### Target Audiences
 There are multiple target audiences for our project. Government officials, the SPD, real estate agents, Seattle residents, and people who are interested in moving to Seattle are all examples of people who would be able to utilize our project. Specifically, someone who is interested in moving to Seattle would want to know about the different neighborhoods and which one is the safest. They would be able to compare neighbordhood crime rates and see what kind of crime is the most common.
 
 1) Based on the dataset, what locations/neighborhoods have had the most crime over the time period?
