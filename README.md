@@ -1,7 +1,9 @@
 # ba6-project
 
 ## Project Description
-The data from this project was aquired from the [City of Seattle Open Data Portal](https://data.seattle.gov/), we have selected the [Crime Data](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5) record provided bt the _Seattle Police Department_. 
+### Summary of the Data
+The data we picked to do  for our final project is a data set of crime in seattle.This data represents crime reported to the Seattle Police Department (SPD). Each row contains the record of a unique event where at least one criminal offense was reported by a member of the community or detected by an officer in the field. 
+These data contain offenses and offense categorization coded to simulate the standard reported to the FBI under the National Incident Based Reporting System (NIBRS) and used to generate Uniform Crime Report (UCR) summary statistics. 
 
 There are multiple target audiences for our project. Government officials, the SPD, real estate agents, Seattle residents, and people who are interested in moving to Seattle are all examples of people who would be able to utilize our project. Specifically, someone who is interested in moving to Seattle would want to know about the different neighborhoods and which one is the safest. They would be able to compare neighbordhood crime rates and see what kind of crime is the most common.
 
@@ -11,9 +13,8 @@ There are multiple target audiences for our project. Government officials, the S
 
 3) Based on the dataset, what are the crime rates for the different neighborhoods? Is crime increasing or decreasing?
 
-### Summary
-The data we picked to do  for our final project is a data set of crime in seattle.This data represents crime reported to the Seattle Police Department (SPD). Each row contains the record of a unique event where at least one criminal offense was reported by a member of the community or detected by an officer in the field. 
-These data contain offenses and offense categorization coded to simulate the standard reported to the FBI under the National Incident Based Reporting System (NIBRS) and used to generate Uniform Crime Report (UCR) summary statistics. 
+### References
+The data from this project was aquired from the [City of Seattle Open Data Portal](https://data.seattle.gov/), we have selected the [Crime Data](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5) record provided bt the _Seattle Police Department_. 
 
 ## Technical Description
 ### About the Data
