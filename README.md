@@ -9,5 +9,15 @@ What will this set of data answer? We will need to list three specific questions
 
 3) Based on the dataset, what crimes are most common during certain parts of the day?
 
+### Summary
+
+### Audience
+
+### Questions answered
 
 ## Technical Description
+### About the Data
+
+### Libraries
+
+### Challenges
