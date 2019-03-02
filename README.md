@@ -14,10 +14,6 @@ There are multiple target audiences for our project. Government officials, the S
 ### Summary
 The data we picked to do  for our final project is a data set of crime in seattle.This data represents crime reported to the Seattle Police Department (SPD). Each row contains the record of a unique event where at least one criminal offense was reported by a member of the community or detected by an officer in the field. 
 These data contain offenses and offense categorization coded to simulate the standard reported to the FBI under the National Incident Based Reporting System (NIBRS) and used to generate Uniform Crime Report (UCR) summary statistics. 
-## Technical Description
-### Audience
-
-### Questions answered
 
 ## Technical Description
 ### About the Data
