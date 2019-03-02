@@ -1,7 +1,7 @@
 # ba6-project
 
 ## Project Description
-The data from this project was aquired from the [City of Seattle Open Data Portal](https://data.seattle.gov/), we have selected the [Crime Data](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5) record provided bt the _Seattle Police Department_. The data represents crime reported to the _Seattle Police Department_ and was updated frequently, recorded data all the way from _1975_ to recent years. The record contains _515,000_ rows with _11_ columns, each providing useful information to help create this project. The data will be read directly from a CSV file downloaded from [City of Seattle Open Data Portal](https://data.seattle.gov/).
+The data from this project was aquired from the [City of Seattle Open Data Portal](https://data.seattle.gov/), we have selected the [Crime Data](https://data.seattle.gov/Public-Safety/Crime-Data/4fs7-3vj5) record provided bt the _Seattle Police Department_. 
 
 There are multiple target audiences for our project. Government officials, the SPD, real estate agents, Seattle residents, and people who are interested in moving to Seattle are all examples of people who would be able to utilize our project. Specifically, someone who is interested in moving to Seattle would want to know about the different neighborhoods and which one is the safest. They would be able to compare neighbordhood crime rates and see what kind of crime is the most common.
 
@@ -19,7 +19,7 @@ There are multiple target audiences for our project. Government officials, the S
 
 ## Technical Description
 ### About the Data
-
+The data represents crime reported to the _Seattle Police Department_ and was updated frequently, recorded data all the way from _1975_ to recent years. The record contains _515,000_ rows with _11_ columns, each providing useful information to help create this project. The data will be read directly from a CSV file downloaded from [City of Seattle Open Data Portal](https://data.seattle.gov/).
 
 For this project, we will need to work on reshaping and reformating the raw data. More specifically, we will need to use both techniques to turn some specific columns in the dataset to readable data and abandon some columns that are not so useful, for example, the _report number_. 
 
