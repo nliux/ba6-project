@@ -6,6 +6,7 @@ library(leaflet)
 
 #s <- crimes[which(crimes$Year == "2014"), ]
 
+
 #crimes[which(crimes$Year == "2010" & crimes$crime_category == "Assault"), "lat"]
 
 # lintr::lint("ui.R")
