@@ -3,6 +3,11 @@ library(shiny)
 library(ggplot2)
 
 my_server <- function(input,output) {
+  
+  #modify dataset
+  
+  
+  
   output$img1 <- renderImage({
     list(src = "data/intro.jpg", width = 400, height = 390)
   }, deleteFile = FALSE)
@@ -27,6 +32,10 @@ my_server <- function(input,output) {
         radius = 4,
         stroke = FALSE
       )
+  })
+  
+  output$second_scatter <- renderPlot({
+    return(third(input$in3))
   })
 }
 
