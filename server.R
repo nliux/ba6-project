@@ -1,6 +1,7 @@
 library(dplyr)
 library(shiny)
 library(ggplot2)
+source("./scripts/third.R")
 
 my_server <- function(input,output) {
   
@@ -34,7 +35,7 @@ my_server <- function(input,output) {
       )
   })
   
-  output$second_scatter <- renderPlot({
+  output$third <- renderPlot({
     return(third(input$in3))
   })
 }

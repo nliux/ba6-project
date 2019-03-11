@@ -2,14 +2,16 @@ library(ggplot2)
 
 #second one
 #comment this out after first run
-crime <- read.csv("../data/Crime_Data.csv", stringsAsFactors = FALSE)
-for (row in 1:nrow(crime)) {
-  date = crime[row, "Occurred.Date"]
-  crime[row, "Year"] = substring(date,7,10)
-}
+#crime <- read.csv("../data/Crime_Data.csv", stringsAsFactors = FALSE)
+#for (row in 1:nrow(crime)) {
+  #date = crime[row, "Occurred.Date"]
+  #crime[row, "Year"] = substring(date,7,10)
+#}
 
-second_scatter <- function(a) {
-  crime <- read.csv("../data/Crime_Data.csv", stringsAsFactors = FALSE)
+#write.csv(crime,'crime_modified.csv')
+
+third <- function(a) {
+  #crime <- read.csv("../data/Crime_Data.csv", stringsAsFactors = FALSE)
   
   four <- nrow(crime[which(crime$Neighborhood == a & crime$Year == "2014"), ])
   five <- nrow(crime[which(crime$Neighborhood == a & crime$Year == "2015"), ])
