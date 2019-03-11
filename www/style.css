@@ -1,0 +1,16 @@
+h1 {
+  font-family: 'Lobster', cursive;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #0033cc;
+}
+
+body {
+  background-color: #fff;
+}
+
+p {
+	font-size: 16px;
+	color: #000066;
+	font-family: Arial, sans-serif;
+}
