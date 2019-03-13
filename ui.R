@@ -3,21 +3,78 @@ library(leaflet)
 library(shinythemes)
 library(ggvis)
 library(leaflet)
+library(shinyWidgets)
 
-#s <- crimes[which(crimes$Year == "2014"), ]
+top_left <- "http://shimlaw.ca/wp-content/uploads/2018/05/Assault-Battery.jpg"
+top_right <- "http://cliparts.co/cliparts/pi5/rL8/pi5rL87KT.gif"
+bottom_left <- "http://nationalbuzz.in/wp-content/uploads/2016/06/car-chori-1024x720.jpg"
+
+bottom_right <- "https://www.reviews.org/app/uploads/2018/01/theft-e1523389451321.jpg"
 
 
-#crimes[which(crimes$Year == "2010" & crimes$crime_category == "Assault"), "lat"]
+tags$head(
+  tags$link(href="app.css", rel="stylesheet", type="text/css")
+)
 
-# lintr::lint("ui.R")
-
-# Create a UI
 crime <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
 
 my_ui <- fluidPage(
   navbarPage(
     theme = "style.css",
     "Seattle Crimes",
+    tabPanel("HOME",
+            # setBackgroundImage(src = "https://giphy.com/gifs/seattle-6OVesXvDu88Ra/fullscreen")
+            tags$div(class = "landing-wrapper",
+                     tags$div(class= "landing-block background-content",
+                              # top left
+                              img(src=top_left),
+                              
+                              # top right
+                              img(src=top_right),
+                              
+                              # bottom left
+                              img(src=bottom_left), 
+                              
+                              # bottom right
+                              
+                              img(src=bottom_right)
+                     )
+            ),
+            tags$div(class="landing-block foreground-content",
+                     tags$div(class="foreground-text",
+                              tags$h1("Welcome"),
+                              tags$p("This shiny app demonstrates
+                                     how to create a 2 x 2 layout
+                                     using css grid and
+                                     overlaying content."),
+                              tags$p("Isn't this cool?"),
+                              tags$p("Yes it is!")
+                              )
+                     )
+            ),
+    tabPanel("Crime by Neighborhood  ",
+             #setBackgroundColor("azure"),  
+             # Sidebar with a slider input for number of bins 
+             pageWithSidebar(
+               headerPanel("crime demographics in Seattle"),
+               sidebarPanel(
+                 selectInput("Neighborhood",label = "Select a Neighborhood", 
+                             choices = as.list(unique(search_by_crime_Neighborhood$Neighborhood))
+                             
+                 ),
+                 selectInput("Crime_Subcategory", label = "Select a Crime", 
+                             choices =  as.list(unique(search_by_crime_Neighborhood$Crime_Subcategory)) 
+                             
+                 )
+               ),
+               
+               mainPanel(
+                 plotOutput("plot")
+               )
+             ),
+             # A paragraph with a hyperlink to the data source http://gabriel-zucman.eu/usdina/
+             p("Source:", a(href = "http://gabriel-zucman.eu/usdina/", "http://gabriel-zucman.eu/usdina/"))
+    ),
     tabPanel(
       "Introduction",
       titlePanel(h1("Seattle Crime Report")),
