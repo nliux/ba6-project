@@ -5,7 +5,7 @@ library(ggvis)
 library(leaflet)
 
 #s <- crimes[which(crimes$Year == "2014"), ]
-crime <- read.csv("data/Crime_Data.csv", stringsAsFactors = FALSE)
+crime <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
 
 
 #crimes[which(crimes$Year == "2010" & crimes$crime_category == "Assault"), "lat"]
@@ -73,7 +73,6 @@ my_ui <- fluidPage(
           selectInput(
             inputId = "in3",
             label = "Neighborhood:",
-            #crime <- read.csv("data/Crime_Data.csv", stringsAsFactors = FALSE),
             choices = c(unique(crime$Neighborhood))
           ),
           p(
