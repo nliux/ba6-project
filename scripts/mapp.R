@@ -6,18 +6,13 @@ mapp <- function(a,b,c) {
            Year == a,
            Month == c)
   
-  palette_fn <- colorFactor(
-    palette = "Dark2",
-    domain = crimes$crime_category
-  )
-  
   leaflet(data = crimes) %>%
     addProviderTiles("Stamen.TonerLite") %>% # add Stamen Map Tiles
     addCircleMarkers( # add markers for each shooting
       lat = crimes[, "lat"],
       lng = crimes[, "long"],
-      color = ~palette_fn(crimes$crime_category), # set color w/ input,
-      fillOpacity = .7,
+      color = "blue", # set color w/ input,
+      fillOpacity = .5,
       radius = 4,
       stroke = FALSE
     )
