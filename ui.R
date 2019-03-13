@@ -17,6 +17,7 @@ tags$head(
 )
 
 crime <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
+crime_another <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
 
 my_ui <- fluidPage(
   navbarPage(
@@ -59,15 +60,13 @@ my_ui <- fluidPage(
                headerPanel("crime demographics in Seattle"),
                sidebarPanel(
                  selectInput("Neighborhood",label = "Select a Neighborhood", 
-                             choices = as.list(unique(search_by_crime_Neighborhood$Neighborhood))
+                             choices = as.list(unique(crime_another$Neighborhood))
                              
                  ),
                  selectInput("Crime_Subcategory", label = "Select a Crime", 
-                             choices =  as.list(unique(search_by_crime_Neighborhood$Crime_Subcategory)) 
-                             
+                             choices =  as.list(unique(crime_another$Crime.Subcategory)) 
                  )
                ),
-               
                mainPanel(
                  plotOutput("plot")
                )
@@ -136,7 +135,7 @@ my_ui <- fluidPage(
           selectInput(
             inputId = "in3",
             label = "Neighborhood:",
-            choices = c(unique(crime$Neighborhood))
+            choices = c(unique(crime_another$Neighborhood))
           ),
           p(
             "put something here"
