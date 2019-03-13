@@ -10,7 +10,7 @@ my_server <- function(input,output) {
   }, deleteFile = FALSE)
   
   output$crime_map <- renderLeaflet({
-    return(mapp(input$in1, input$in2))
+    return(mapp(input$year, input$crime, input$month))
   })
   
   output$third <- renderPlot({

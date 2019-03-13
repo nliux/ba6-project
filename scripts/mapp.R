@@ -1,7 +1,10 @@
-mapp <- function(a,b) {
+mapp <- function(a,b,c) {
   crimes <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
   
-  crimes <- crimes[which(crimes$crime_category == "Assault" | crimes$crime_category == "Vehicle Theft"), ]
+  crimes <- crimes %>% 
+    filter(crime_category == b,
+           Year == a,
+           Month == c)
   
   palette_fn <- colorFactor(
     palette = "Dark2",
@@ -11,8 +14,8 @@ mapp <- function(a,b) {
   leaflet(data = crimes) %>%
     addProviderTiles("Stamen.TonerLite") %>% # add Stamen Map Tiles
     addCircleMarkers( # add markers for each shooting
-      lat = crimes[which(crimes$Year == a & crimes$crime_category == b), "lat"],
-      lng = crimes[which(crimes$Year == a & crimes$crime_category == b), "long"],
+      lat = crimes[, "lat"],
+      lng = crimes[, "long"],
       color = ~palette_fn(crimes$crime_category), # set color w/ input,
       fillOpacity = .7,
       radius = 4,

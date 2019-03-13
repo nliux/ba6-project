@@ -48,16 +48,21 @@ my_ui <- fluidPage(
       sidebarLayout(
         sidebarPanel(
           selectInput(
-            inputId = "in1",
+            inputId = "year",
             label = "Year:",
             choices = c("2010", "2011", "2012", "2013",
                         "2014")
           ),
-            selectInput(
-              inputId = "in2",
-              label = "Crime:",
-              choices = c("Vehicle Theft", "Assault")
-            )
+          selectInput(
+            inputId = "crime",
+            label = "Crime:",
+            choices = c(unique(crimes$crime_category))
+          ),
+          selectInput(
+            inputId = "month",
+            label = "Month:",
+            choices = c(1:12)
+          )
         
         ),
         mainPanel(
