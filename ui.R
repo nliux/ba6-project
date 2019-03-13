@@ -5,7 +5,6 @@ library(ggvis)
 library(leaflet)
 
 #s <- crimes[which(crimes$Year == "2014"), ]
-crime <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
 
 
 #crimes[which(crimes$Year == "2010" & crimes$crime_category == "Assault"), "lat"]
@@ -13,6 +12,8 @@ crime <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
 # lintr::lint("ui.R")
 
 # Create a UI
+crime <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
+
 my_ui <- fluidPage(
   navbarPage(
     theme = "style.css",
@@ -56,7 +57,7 @@ my_ui <- fluidPage(
           selectInput(
             inputId = "crime",
             label = "Crime:",
-            choices = c(unique(crimes$crime_category))
+            choices = c(unique(crime$crime_category))
           ),
           selectInput(
             inputId = "month",
