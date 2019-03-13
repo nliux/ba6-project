@@ -7,6 +7,7 @@ library(tidyr)
 source("./scripts/third.R")
 source("./scripts/mapp.R")
 source("./scripts/crime_plot.R")
+source("./scripts/time.R")
 
 my_server <- function(input,output) {
   
@@ -24,6 +25,10 @@ my_server <- function(input,output) {
   
   output$plot <- renderPlot({
     return(crime_plot(input$Neighborhood, input$Crime_Subcategory))
+  })
+  
+  output$time <- renderTable({
+    return(time(input$radio))
   })
 }
 

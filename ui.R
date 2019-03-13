@@ -145,6 +145,15 @@ my_ui <- fluidPage(
           plotOutput("third")
         )
       )
+    ),
+    tabPanel("Crime Related to Time",
+             sidebarLayout(
+               sidebarPanel(
+                 radioButtons(inputId = "radio", label = h3("Select a Time of Day"),
+                              choices = list("Early Morning (12:00am - 6:00am)" = "Early Morning", "Morning (6:00am - 11:00am)" = "Morning", "Noon (11:00am - 2:00pm)" = "Noon", "Afternoon (2:00pm - 6:00pm)" = "Afternoon", "Night (6:00pm - 12:00am)" = "Night"),
+                              selected = "Early Morning")),
+               mainPanel(
+                 tableOutput("time")))
     )
   )
 )
