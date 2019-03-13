@@ -127,25 +127,6 @@ my_ui <- fluidPage(
         )
       )
     ),
-    tabPanel(
-      "Crime Rates",
-      titlePanel(h1("Crime Rates in recent years")),
-      sidebarLayout(
-        sidebarPanel(
-          selectInput(
-            inputId = "in3",
-            label = "Neighborhood:",
-            choices = c(unique(crime_another$Neighborhood))
-          ),
-          p(
-            "put something here"
-          )
-          ),
-        mainPanel(
-          plotOutput("third")
-        )
-      )
-    ),
     tabPanel("Crime Related to Time",
              sidebarLayout(
                sidebarPanel(

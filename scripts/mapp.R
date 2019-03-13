@@ -1,5 +1,6 @@
 mapp <- function(a,b,c) {
-  crimes <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
+  setwd("/Users/mabochen/Info201/ba6-project/scripts")
+  crimes <- read.csv("../data/data_map.csv", stringsAsFactors = FALSE)
   
   crimes <- crimes %>% 
     filter(crime_category == b,
