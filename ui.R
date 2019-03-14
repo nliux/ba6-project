@@ -9,6 +9,7 @@ top_left <- "http://shimlaw.ca/wp-content/uploads/2018/05/Assault-Battery.jpg"
 top_right <- "http://cliparts.co/cliparts/pi5/rL8/pi5rL87KT.gif"
 bottom_left <- "http://nationalbuzz.in/wp-content/uploads/2016/06/car-chori-1024x720.jpg"
 bottom_right <- "https://www.reviews.org/app/uploads/2018/01/theft-e1523389451321.jpg"
+seattle <- "https://www.goodfreephotos.com/albums/united-states/washington/seattle/seattle-skyline-from-queen-anne-hill-washington.jpg"
 
 
 tags$head(
@@ -22,36 +23,6 @@ my_ui <- fluidPage(
   navbarPage(
     theme = "style.css",
     "Seattle Crimes",
-    tabPanel("HOME",
-            # setBackgroundImage(src = "https://giphy.com/gifs/seattle-6OVesXvDu88Ra/fullscreen")
-            tags$div(class = "landing-wrapper",
-                     tags$div(class= "landing-block background-content",
-                              # top left
-                              img(src=top_left),
-                              
-                              # top right
-                              img(src=top_right),
-                              
-                              # bottom left
-                              img(src=bottom_left), 
-                              
-                              # bottom right
-                              
-                              img(src=bottom_right)
-                     )
-            ),
-            tags$div(class="landing-block foreground-content",
-                     tags$div(class="foreground-text",
-                              tags$h1("Welcome"),
-                              tags$p("This shiny app demonstrates
-                                     how to create a 2 x 2 layout
-                                     using css grid and
-                                     overlaying content."),
-                              tags$p("Isn't this cool?"),
-                              tags$p("Yes it is!")
-                              )
-                     )
-            ),
     tabPanel(
       "Introduction",
       titlePanel(h1("Seattle Crime Report")),
@@ -59,7 +30,6 @@ my_ui <- fluidPage(
         imageOutput("img1")
       ),
       titlePanel(h2("Summary of the Data")),
-      
       p(
         "The data we picked to do for our final project is a data set of crime 
         in Seattle. This data represents crime reported to the Seattle Police
@@ -110,55 +80,56 @@ my_ui <- fluidPage(
           selectInput(
             inputId = "year",
             label = "Year:",
-            choices = c("2010", "2011", "2012", "2013",
-                        "2014")
+            choices = c("2010", "2011", "2012", "2013","2014")
           )
-        
         ),
         mainPanel(
-          leafletOutput(outputId = "crime_map")
+          leafletOutput(outputId = "crime_map"),
+          textOutput(outputId = "crime_txt")
         )
       )
     ),
-    tabPanel("Crime by Neighborhood",
-             #setBackgroundColor("azure"),  
-             # Sidebar with a slider input for number of bins 
-             pageWithSidebar(
-               headerPanel("Crime Statistics Over Time"),
-               sidebarPanel(
-                 selectInput("Neighborhood",label = "Select a Neighborhood", 
-                             choices = as.list(unique(crime_another$Neighborhood))
-     
-                 ),
-                 selectInput("Crime_Subcategory", label = "Select a Crime", 
-                             choices =  as.list(unique(crime_another$Crime.Subcategory)) 
-                 )
-               ),
-               mainPanel(
-                 plotOutput("plot")
-               )
-             ),
-             # A paragraph with a hyperlink to the data source http://gabriel-zucman.eu/usdina/
-             p("Source:", a(href = "http://gabriel-zucman.eu/usdina/", "http://gabriel-zucman.eu/usdina/"))
+    tabPanel(
+      "Crime by Neighborhood",
+      pageWithSidebar(
+        headerPanel("Crime Statistics Over Time"),
+        sidebarPanel(
+          selectInput(
+            "Neighborhood",
+            label = "Select a Neighborhood",
+            choices = as.list(unique(crime_another$Neighborhood))
+          ),
+          selectInput(
+            "Crime_Subcategory", 
+            label = "Select a Crime", 
+            choices =  as.list(unique(crime_another$Crime.Subcategory)) 
+          )
+        ),
+        mainPanel(plotOutput("plot"))
+      ),
+      # A paragraph with a hyperlink to the data source http://gabriel-zucman.eu/usdina/
+      p("Source:", a(href = "http://gabriel-zucman.eu/usdina/", "http://gabriel-zucman.eu/usdina/"))
     ),
-    tabPanel("Crime Related to Time",
-             titlePanel(h1("Crime Based on Time of Day")),
-             sidebarLayout(
-               sidebarPanel(
-                 radioButtons(inputId = "radio", label = h3("Select a Time of Day"),
-                              choices = list(
-                                "Early Morning (12:00am - 6:00am)" = "Early Morning",
-                                "Morning (6:00am - 11:00am)" = "Morning",
-                                "Noon (11:00am - 2:00pm)" = "Noon",
-                                "Afternoon (2:00pm - 6:00pm)" = "Afternoon",
-                                "Night (6:00pm - 12:00am)" = "Night"
-                              ),
-                              selected = "Early Morning")
-                 ),
-               mainPanel(
-                 tableOutput("time")
-               )
+    tabPanel(
+      "Crime Related to Time",
+      titlePanel(h1("Crime Based on Time of Day")),
+      sidebarLayout(
+        sidebarPanel(
+          radioButtons(
+            inputId = "radio",
+            label = h3("Select a Time of Day"),
+            choices = list(
+              "Early Morning (12:00am - 6:00am)" = "Early Morning",
+              "Morning (6:00am - 11:00am)" = "Morning",
+              "Noon (11:00am - 2:00pm)" = "Noon",
+              "Afternoon (2:00pm - 6:00pm)" = "Afternoon",
+              "Night (6:00pm - 12:00am)" = "Night"
+            ),
+            selected = "Early Morning"
             )
+        ),
+        mainPanel(tableOutput("time"))
+      )
     )
   )
 )

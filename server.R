@@ -11,13 +11,12 @@ source("./scripts/time.R")
 my_server <- function(input,output) {
   
   output$img1 <- renderImage({
-    list(src = "data/intro.jpg", width = 400, height = 390)
+    list(src = "data/seattle.jpg", width = "100%", height = "100%")
   }, deleteFile = FALSE)
   
   output$crime_map <- renderLeaflet({
     return(mapp(input$year, input$crime, input$month))
   })
-  
   
   output$plot <- renderPlot({
     return(crime_plot(input$Neighborhood, input$Crime_Subcategory))
