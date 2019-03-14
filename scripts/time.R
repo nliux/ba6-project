@@ -3,6 +3,8 @@ library(dplyr)
 library(lubridate)
 library(stringr)
 
+# This is a function which generates a chart comparing the highest and lowest
+# rates of crime depending on the time of day selected.
 time <- function(period){
   crime_another <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
   crime_clean <- crime_another %>%
@@ -35,7 +37,10 @@ time <- function(period){
     
   summary <- bind_cols(most_neighborhood, most_crime, least_neighborhood, least_crime)
   
-  colnames(summary) <- c("Neighborhood w/ Most Crime", "Most Common Crime", "Neighborhood w/ Least Crime", "Least Common Crime")
+  colnames(summary) <- c("Neighborhood w/ Most Crime",
+                         "Most Common Crime",
+                         "Neighborhood w/ Least Crime",
+                         "Least Common Crime")
   
   summary
 

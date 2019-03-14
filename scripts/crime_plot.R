@@ -1,6 +1,6 @@
+# This is a function which generates a plot based on crime and neighborhood.
 crime_plot <- function(a,b) {
-  setwd("/Users/mabochen/Info201/ba6-project/scripts")
-  crime_data <- read.csv("../data/crime_modified.csv")
+  crime_data <- read.csv("data/crime_modified.csv")
   
   # selecting the colums we want to display and  changing 12/15/ 2015 to only year
   data_selct <- crime_data %>% select(Neighborhood,Occurred.Date,Occurred.Time,
@@ -16,8 +16,8 @@ crime_plot <- function(a,b) {
   crime_2015_2019 <- search_by_crime_Neighborhood %>% filter( Neighborhood == a,
                                                               Crime.Subcategory == b)  
   
-  ggplot(data=crime_2015_2019 , aes(x= Year , y= Number_of_Occurred )) +
+  ggplot(data=crime_2015_2019 , aes(x= Year, y= Number_of_Occurred)) +
     geom_bar(stat="identity", fill = "coral4") +  
-    labs(x = paste("The Years of", b, "Occurred in", a), y = "Number of Time Occurred" , 
-         title =  paste(" Number of ", b," Reported in ", a, " between 2015 to 2019:",sep  = "" )) 
+    labs(x = "Year", y = "Number of Occurrences" , 
+         title =  paste(" Number of ", b," Reported in ", a, sep  = "" )) 
 }
