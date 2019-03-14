@@ -5,16 +5,9 @@ library(ggvis)
 library(leaflet)
 library(shinyWidgets)
 
-top_left <- "http://shimlaw.ca/wp-content/uploads/2018/05/Assault-Battery.jpg"
-top_right <- "http://cliparts.co/cliparts/pi5/rL8/pi5rL87KT.gif"
-bottom_left <- "http://nationalbuzz.in/wp-content/uploads/2016/06/car-chori-1024x720.jpg"
-bottom_right <- "https://www.reviews.org/app/uploads/2018/01/theft-e1523389451321.jpg"
-seattle <- "https://www.goodfreephotos.com/albums/united-states/washington/seattle/seattle-skyline-from-queen-anne-hill-washington.jpg"
 
 
-tags$head(
-  tags$link(href="app.css", rel="stylesheet", type="text/css")
-)
+
 
 crime <- read.csv("data/data_map.csv", stringsAsFactors = FALSE)
 crime_another <- read.csv("data/crime_modified.csv", stringsAsFactors = FALSE)
@@ -106,9 +99,7 @@ my_ui <- fluidPage(
           )
         ),
         mainPanel(plotOutput("plot"))
-      ),
-      # A paragraph with a hyperlink to the data source http://gabriel-zucman.eu/usdina/
-      p("Source:", a(href = "http://gabriel-zucman.eu/usdina/", "http://gabriel-zucman.eu/usdina/"))
+      )
     ),
     tabPanel(
       "Crime Related to Time",
